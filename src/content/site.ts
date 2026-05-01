@@ -190,8 +190,8 @@ export const site: Site = {
           href: "https://docs.google.com/document/d/1-rRoGeg0ZattBbF4WXdibstQQa-rSsnJZk2Nztm9paQ/edit",
         },
         {
-          label: "Code",
-          href: "https://colab.research.google.com/drive/1qWvp-V3C0LU44Eh_QBlqct7fsaj-K78Q",
+          label: "Repo",
+          href: "https://github.com/BenjaminHolderbein/cell-counting-unet",
         },
       ],
     },
