@@ -27,6 +27,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(`https://${site.domain}`),
   title: `${site.name} — ${site.role}`,
   description: site.oneLiner,
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: `https://${site.domain}`,
@@ -58,6 +59,29 @@ export default function RootLayout({
       <body className="min-h-full">
         <SkylightWatcher />
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: site.name,
+              url: `https://${site.domain}`,
+              jobTitle: site.role,
+              description: site.oneLiner,
+              image: `https://${site.domain}/headshot.jpg`,
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "San Francisco",
+                addressRegion: "CA",
+                addressCountry: "US",
+              },
+              sameAs: site.links
+                .filter((l) => l.href.startsWith("http"))
+                .map((l) => l.href),
+            }),
+          }}
+        />
       </body>
     </html>
   );
