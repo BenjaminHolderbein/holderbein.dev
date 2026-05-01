@@ -38,7 +38,7 @@ export function PageShell({
         aria-hidden
         className="pointer-events-none absolute left-[6.25rem] top-[200px] z-[3] hidden origin-top-left -rotate-90 whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.32em] text-sage-mid md:block"
       >
-        Holderbein · est. 2026
+        Holderbein · San Francisco
       </div>
 
       <div className="relative z-[2] mx-auto min-h-screen w-full max-w-[1100px] px-6 pb-40 pt-20 md:px-20 md:pl-[200px] md:pt-22">

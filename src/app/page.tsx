@@ -5,6 +5,7 @@ import { Section, SectionHead, SectionTitle, Para } from "@/components/Section";
 import { NowList } from "@/components/NowList";
 import { ProjectList } from "@/components/ProjectRow";
 import { ExperienceList } from "@/components/ExperienceList";
+import { ContactList } from "@/components/ContactList";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         titleTop="Benjamin"
         titleBottom="Holderbein"
         blurb={site.bioShort}
+        portrait={{ src: "/headshot.jpg", alt: "Benjamin Holderbein" }}
       />
 
       <Section>
@@ -44,6 +46,11 @@ export default function Home() {
       <Section>
         <SectionHead num="04" label="Experience" />
         <ExperienceList entries={site.experience} />
+      </Section>
+
+      <Section>
+        <SectionHead num="05" label="Contact" accent="Say hello" />
+        <ContactList links={site.links} />
       </Section>
     </PageShell>
   );
