@@ -1,8 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#ffffff"/>
-  <rect x="2" y="24" width="6" height="6" fill="oklch(0.66 0.20 142)"/>
-  <text x="16" y="22" text-anchor="middle"
-        font-family="Fraunces, Georgia, 'Times New Roman', serif"
-        font-size="20" font-weight="400" fill="#0a0a0a"
-        letter-spacing="-0.5">BH</text>
+  <clipPath id="r"><rect width="32" height="32" rx="6" ry="6"/></clipPath>
+  <g clip-path="url(#r)">
+    <rect width="32" height="32" fill="#ffffff"/>
+    <rect x="2" y="24" width="6" height="6" fill="oklch(0.66 0.20 142)"/>
+    <text x="16" y="22" text-anchor="middle"
+          font-family="Fraunces, Georgia, 'Times New Roman', serif"
+          font-size="20" font-weight="400" fill="#0a0a0a"
+          letter-spacing="-0.5">BH</text>
+  </g>
 </svg>
