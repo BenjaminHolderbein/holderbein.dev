@@ -96,7 +96,8 @@ function Footer() {
     <footer className="mt-20 flex flex-wrap justify-between gap-4 border-t border-sage-hair pt-8 font-mono text-[11px] uppercase tracking-[0.10em] text-ink-faint">
       <span>© 2026 {site.name}</span>
       <span>
-        <span className="text-sage-mid">San Francisco</span> · May 2026
+        <span className="text-sage-mid">San Francisco</span> · Available{" "}
+        {site.availability}
       </span>
     </footer>
   );

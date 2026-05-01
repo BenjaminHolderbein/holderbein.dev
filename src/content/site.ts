@@ -27,6 +27,7 @@ export type Site = {
   domain: string;
   location: string;
   role: string;
+  availability: string;
   oneLiner: string;
   bioShort: string;
   bioLong: string[];
@@ -42,6 +43,7 @@ export const site: Site = {
   domain: "holderbein.dev",
   location: "San Francisco, CA",
   role: "AI Engineer",
+  availability: "July 2026",
   oneLiner:
     "AI Engineer & Master's student building and deploying LLM systems.",
   bioShort:

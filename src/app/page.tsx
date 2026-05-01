@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <PageShell active="home">
       <Hero
-        tag="Available · July 2026"
+        tag={`Available · ${site.availability}`}
         titleTop="Benjamin"
         titleBottom="Holderbein"
         blurb={site.bioShort}
