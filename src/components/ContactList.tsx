@@ -9,7 +9,7 @@ export function ContactList({ links }: { links: SiteLink[] }) {
         return (
           <li
             key={l.label}
-            className={`grid grid-cols-[120px_1fr] items-baseline gap-5 border-t border-sage-hair py-5 ${
+            className={`grid grid-cols-1 gap-1.5 border-t border-sage-hair py-5 sm:grid-cols-[120px_1fr] sm:items-baseline sm:gap-5 ${
               last ? "border-b" : ""
             }`}
           >
@@ -20,7 +20,7 @@ export function ContactList({ links }: { links: SiteLink[] }) {
               href={l.href}
               target={external ? "_blank" : undefined}
               rel={external ? "noopener noreferrer" : undefined}
-              className="font-mono text-[14px] text-sage-deep transition-colors hover:text-sage-bright"
+              className="break-all font-mono text-[14px] text-sage-deep transition-colors hover:text-sage-bright"
             >
               {l.display ?? l.href} →
             </a>

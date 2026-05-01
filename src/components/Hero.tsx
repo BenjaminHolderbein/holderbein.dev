@@ -10,8 +10,8 @@ type Props = {
 
 export function Hero({ tag, titleTop, titleBottom, blurb, portrait }: Props) {
   return (
-    <header className="relative mb-32">
-      <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-[1fr_auto] md:gap-16">
+    <header className="relative mb-20 md:mb-32">
+      <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-[1fr_auto] md:gap-16">
         <div>
           {!portrait && (
             <div className="mb-9 h-14 w-14 bg-sage-bright" aria-hidden />
@@ -20,7 +20,7 @@ export function Hero({ tag, titleTop, titleBottom, blurb, portrait }: Props) {
             {tag}
           </div>
           <h1
-            className="m-0 font-serif text-[64px] font-normal leading-[0.92] tracking-[-0.035em] text-[#0a0a0a] md:text-[96px]"
+            className="m-0 font-serif text-[52px] font-normal leading-[0.95] tracking-[-0.035em] text-[#0a0a0a] sm:text-[64px] md:text-[96px] md:leading-[0.92]"
             style={{ textWrap: "balance" }}
           >
             {titleTop}
@@ -36,18 +36,18 @@ export function Hero({ tag, titleTop, titleBottom, blurb, portrait }: Props) {
         </div>
 
         {portrait && (
-          <figure className="order-first m-0 md:order-none md:pt-12">
+          <figure className="order-first m-0 flex justify-center md:order-none md:block md:pt-12">
             <div className="relative">
               <div
                 aria-hidden
                 className="pointer-events-none absolute -inset-2 border border-sage-hair"
               />
-              <div className="relative h-[280px] w-[224px] overflow-hidden md:h-[360px] md:w-[288px]">
+              <div className="relative h-[260px] w-[208px] overflow-hidden md:h-[360px] md:w-[288px]">
                 <Image
                   src={portrait.src}
                   alt={portrait.alt}
                   fill
-                  sizes="(max-width: 768px) 224px, 288px"
+                  sizes="(max-width: 768px) 208px, 288px"
                   className="object-cover"
                   priority
                 />

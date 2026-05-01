@@ -18,7 +18,7 @@ export function SectionHead({
 }
 
 export function Section({ children }: { children: React.ReactNode }) {
-  return <section className="relative mb-28">{children}</section>;
+  return <section className="relative mb-20 md:mb-28">{children}</section>;
 }
 
 export function SectionTitle({ children }: { children: React.ReactNode }) {

@@ -41,7 +41,7 @@ export function PageShell({
         Holderbein · San Francisco
       </div>
 
-      <div className="relative z-[2] mx-auto min-h-screen w-full max-w-[1100px] px-6 pb-40 pt-20 md:px-20 md:pl-[200px] md:pt-22">
+      <div className="relative z-[2] mx-auto min-h-screen w-full max-w-[1100px] px-5 pb-24 pt-10 sm:px-6 md:px-20 md:pl-[200px] md:pb-40 md:pt-22">
         <Topbar active={active} />
         {children}
         <Footer />
@@ -63,14 +63,14 @@ function Topbar({ active }: { active: "home" | "projects" | "resume" }) {
   ];
 
   return (
-    <div className="mb-24 flex items-center justify-between">
+    <div className="mb-14 flex items-center justify-between gap-4 md:mb-24">
       <Link
         href="/"
-        className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink"
+        className="hidden font-mono text-[11px] uppercase tracking-[0.12em] text-ink sm:inline"
       >
         {site.domain}
       </Link>
-      <nav className="flex gap-7">
+      <nav className="flex gap-5 sm:gap-7">
         {items.map((item) =>
           item.external ? (
             <a
