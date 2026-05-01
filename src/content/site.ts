@@ -67,6 +67,11 @@ export const site: Site = {
       href: "https://linkedin.com/in/benjamin-holderbein",
       display: "linkedin.com/in/benjamin-holderbein",
     },
+    {
+      label: "Resume",
+      href: "/resume.pdf",
+      display: "resume.pdf",
+    },
   ],
   now: [
     "Building the next iteration of Asurion's retrieval stack — eval harness over BGE / Qwen3 / Nemotron / Gemini.",

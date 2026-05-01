@@ -23,8 +23,21 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(`https://${site.domain}`),
   title: `${site.name} — ${site.role}`,
   description: site.oneLiner,
+  openGraph: {
+    type: "website",
+    url: `https://${site.domain}`,
+    siteName: site.name,
+    title: `${site.name} — ${site.role}`,
+    description: site.oneLiner,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} — ${site.role}`,
+    description: site.oneLiner,
+  },
 };
 
 export default function RootLayout({
