@@ -2,21 +2,30 @@
 
 import { useEffect } from "react";
 
-const SKYLIGHT_END = 800;
+// Distance from page bottom (in px) at which the html bg flips to paper,
+// so the bottom-edge overscroll bounce reveals paper instead of sage.
+const BOTTOM_THRESHOLD = 400;
 
 export function SkylightWatcher() {
   useEffect(() => {
     const html = document.documentElement;
     const update = () => {
-      const past = window.scrollY > SKYLIGHT_END;
+      const distanceFromBottom =
+        document.documentElement.scrollHeight -
+        (window.scrollY + window.innerHeight);
+      const nearBottom = distanceFromBottom < BOTTOM_THRESHOLD;
       html.style.setProperty(
         "--skylight",
-        past ? "var(--paper)" : "oklch(0.985 0.0275 142)",
+        nearBottom ? "var(--paper)" : "oklch(0.985 0.0275 142)",
       );
     };
     update();
     window.addEventListener("scroll", update, { passive: true });
-    return () => window.removeEventListener("scroll", update);
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
   }, []);
 
   return null;
