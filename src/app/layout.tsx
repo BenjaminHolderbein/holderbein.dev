@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
+import { SkylightWatcher } from "@/components/SkylightWatcher";
 
 const interTight = Inter_Tight({
   variable: "--font-inter-tight",
@@ -54,7 +55,10 @@ export default function RootLayout({
       lang="en"
       className={`${interTight.variable} ${fraunces.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        <SkylightWatcher />
+        {children}
+      </body>
     </html>
   );
 }

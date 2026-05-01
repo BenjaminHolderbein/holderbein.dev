@@ -36,13 +36,17 @@
 }
 
 html {
-  /* Solid sage tint shown above the page (overscroll bounce / iOS notch). */
-  background: oklch(0.985 0.0275 142);
+  /* SkylightWatcher (client) toggles --skylight between sage (top of page,
+     where the gradient bleeds into overscroll) and paper (past the gradient,
+     so the bottom-edge bounce matches the white page bg). */
+  --skylight: oklch(0.985 0.0275 142);
+  background-color: var(--skylight);
+  transition: background-color 220ms ease-out;
 }
 
 body {
-  /* Body is transparent at the top so the html tint shows through, then fades
-     to paper after the first 720px. Sized to body so it spans the full page. */
+  /* Transparent at the top so the html tint shows through, fades to paper
+     after the first 720px. Sized to body so it spans the full page. */
   background: linear-gradient(
     180deg,
     transparent 0px,
@@ -51,9 +55,6 @@ body {
     var(--paper) 100%
   );
   color: var(--ink);
-}
-
-body {
   font-family: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
