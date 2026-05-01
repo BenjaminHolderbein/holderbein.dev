@@ -16,6 +16,10 @@
   --ink-3:      #5a5a5a;
   --ink-muted:  #888888;
   --ink-faint:  #999999;
+
+  /* Tint shown above the page (overscroll bounce / iOS notch zone).
+     Approximates the alpha-blended top stop of the skylight gradient over paper. */
+  --skylight-top: oklch(0.985 0.0275 142);
 }
 
 @theme inline {
@@ -35,7 +39,11 @@
   --font-serif: var(--font-fraunces);
 }
 
-html, body {
+html {
+  background: var(--skylight-top);
+}
+
+body {
   background: var(--paper);
   color: var(--ink);
 }
