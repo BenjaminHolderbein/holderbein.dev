@@ -187,7 +187,7 @@ export const site: Site = {
       links: [
         {
           label: "Report",
-          href: "https://docs.google.com/document/d/1-rRoGeg0ZattBbF4WXdibstQQa-rSsnJZk2Nztm9paQ/edit",
+          href: "https://github.com/BenjaminHolderbein/cell-counting-unet/blob/main/report.pdf",
         },
         {
           label: "Repo",
