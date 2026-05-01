@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { site } from "@/content/site";
 import { PageShell } from "@/components/PageShell";
 import { Hero } from "@/components/Hero";
@@ -7,11 +8,16 @@ import { ProjectList } from "@/components/ProjectRow";
 import { ExperienceList } from "@/components/ExperienceList";
 import { ContactList } from "@/components/ContactList";
 
+const FEATURED_PROJECT_COUNT = 4;
+
 export default function Home() {
+  const featured = site.projects.slice(0, FEATURED_PROJECT_COUNT);
+  const moreCount = site.projects.length - featured.length;
+
   return (
     <PageShell active="home">
       <Hero
-        tag="Available · May 2026"
+        tag="Available · July 2026"
         titleTop="Benjamin"
         titleBottom="Holderbein"
         blurb={site.bioShort}
@@ -40,7 +46,17 @@ export default function Home() {
           label="Selected work"
           accent={`${site.projects.length} projects`}
         />
-        <ProjectList projects={site.projects} />
+        <ProjectList projects={featured} />
+        {moreCount > 0 && (
+          <div className="mt-6 font-mono text-[12px] uppercase tracking-[0.12em] text-sage-mid">
+            <Link
+              href="/projects"
+              className="transition-colors hover:text-sage-bright"
+            >
+              View all {site.projects.length} projects →
+            </Link>
+          </div>
+        )}
       </Section>
 
       <Section>

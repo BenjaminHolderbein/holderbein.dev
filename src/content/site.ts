@@ -126,21 +126,21 @@ export const site: Site = {
   ],
   projects: [
     {
-      slug: "connected-vehicle",
-      title: "Connected Vehicle Data Pipeline",
-      year: "2025",
+      slug: "ecommerce-ticket-triage",
+      title: "Ecommerce Ticket Triage Assistant",
+      year: "2026",
       status: "live",
       blurb:
-        "End-to-end pipeline that synthesizes connected-vehicle transactions, lands them in Postgres, runs feature engineering and a fraud-detection model, and surfaces results in a real-time Streamlit dashboard.",
-      stack: ["Python", "PostgreSQL", "scikit-learn", "Streamlit"],
+        "Multi-service GCP system that triages support tickets by predicted priority with a fine-tuned DistilBERT classifier. FastAPI backend on Cloud Run with Firebase auth and per-user rate limits, Cloud SQL Postgres scoped by uid, Vertex AI for training and the model registry.",
+      stack: ["GCP", "Cloud Run", "FastAPI", "DistilBERT", "Vertex AI", "Postgres"],
       links: [
         {
           label: "Live",
-          href: "https://connected-vehicle-data-pipeline.streamlit.app",
+          href: "https://msds-603-victors-demons.firebaseapp.com",
         },
         {
           label: "Repo",
-          href: "https://github.com/BenjaminHolderbein/connected-vehicle-data-pipeline",
+          href: "https://github.com/NandakumarGunalan/ecommerce-ticket-assistant",
         },
       ],
     },
@@ -160,6 +160,21 @@ export const site: Site = {
       ],
     },
     {
+      slug: "claude-orchestrate",
+      title: "Claude Orchestrate",
+      year: "2026",
+      status: "live",
+      blurb:
+        "A Claude Code skill and matching sub-agent that turn the main agent into a coordinator. Decomposes a plan into waves, spawns implementer sub-agents in isolated git worktrees, runs them in parallel where safe, and stays out of the way between checkpoints.",
+      stack: ["Claude Code", "Agents", "Git Worktrees"],
+      links: [
+        {
+          label: "Repo",
+          href: "https://github.com/BenjaminHolderbein/claude-orchestrate",
+        },
+      ],
+    },
+    {
       slug: "cell-counting",
       title: "Cellular Microscopy Counting",
       year: "2024",
@@ -168,8 +183,78 @@ export const site: Site = {
         "U-Net CNN for image segmentation that automates cell counting for biomedical research. Mean error of 1.4 cells, beating the 3-cell target by 2x and replacing manual counting.",
       stack: ["PyTorch", "U-Net", "CV"],
       links: [
-        { label: "Report", href: "#" },
-        { label: "Code", href: "#" },
+        {
+          label: "Report",
+          href: "https://docs.google.com/document/d/1-rRoGeg0ZattBbF4WXdibstQQa-rSsnJZk2Nztm9paQ/edit",
+        },
+        {
+          label: "Code",
+          href: "https://colab.research.google.com/drive/1qWvp-V3C0LU44Eh_QBlqct7fsaj-K78Q",
+        },
+      ],
+    },
+    {
+      slug: "wallpaper-gen",
+      title: "Wallpaper Gen",
+      year: "2026",
+      status: "wip",
+      blurb:
+        "Full-stack AI wallpaper generator pairing a FastAPI backend with a React UI. Generates SDXL images, upscales with Real-ESRGAN to 4–5K, and ships with 15 device presets and a searchable gallery. WebSockets stream live progress.",
+      stack: ["SDXL", "FastAPI", "React", "TypeScript", "WebSockets"],
+      links: [
+        {
+          label: "Repo",
+          href: "https://github.com/BenjaminHolderbein/wallpaper-gen",
+        },
+      ],
+    },
+    {
+      slug: "mcp-server-svg",
+      title: "MCP Server SVG",
+      year: "2026",
+      status: "live",
+      blurb:
+        "An MCP server that lets Claude Code screenshot SVG files in-context — pass a path, get back a rendered PNG. Closes the visual feedback loop for SVG diagramming, so Claude can see what it's drawing without leaving the terminal.",
+      stack: ["MCP", "TypeScript", "Playwright"],
+      links: [
+        {
+          label: "Repo",
+          href: "https://github.com/BenjaminHolderbein/mcp-server-svg",
+        },
+        {
+          label: "npm",
+          href: "https://www.npmjs.com/package/@benjaminholderbein/mcp-server-svg",
+        },
+      ],
+    },
+    {
+      slug: "screen-fx",
+      title: "Screen FX",
+      year: "2026",
+      status: "live",
+      blurb:
+        "A self-contained ~95KB single-file visual playground — generative gradients, lava lamps, starfields, liquid glass — with a layerable post-FX pipeline (bloom, film grain, vignette). All state round-trips through the URL hash so any look is shareable.",
+      stack: ["WebGL2", "JavaScript", "GLSL"],
+      links: [
+        {
+          label: "Repo",
+          href: "https://github.com/BenjaminHolderbein/screen-fx",
+        },
+      ],
+    },
+    {
+      slug: "campsite-crawler",
+      title: "Campsite Crawler",
+      year: "2026",
+      status: "live",
+      blurb:
+        "Polls recreation.gov and ReserveCalifornia for campsite availability on a fixed date range and pushes a notification the instant something opens up. Both providers expose unauthenticated JSON APIs — no scraping, no token, just diff-on-poll.",
+      stack: ["Python", "ntfy", "uv"],
+      links: [
+        {
+          label: "Repo",
+          href: "https://github.com/BenjaminHolderbein/campsite-crawler",
+        },
       ],
     },
   ],
