@@ -150,10 +150,10 @@ export const site: Site = {
       slug: "llm-from-scratch",
       title: "LLM From Scratch",
       year: "2025",
-      status: "wip",
+      status: "live",
       blurb:
-        "Implementing a transformer-based LLM in PyTorch from first principles, following Sebastian Raschka's Build a Large Language Model. A working understanding of every line, not just the API.",
-      stack: ["PyTorch", "Python"],
+        "From-scratch GPT-2 small in PyTorch (~124M params): BPE tokenizer with a sliding-window dataloader, multi-head causal self-attention, the full transformer stack, and a pretraining loop that samples generations mid-training. Each file maps to a stage of Sebastian Raschka's Build a Large Language Model.",
+      stack: ["PyTorch", "Transformers", "tiktoken", "Python"],
       links: [
         {
           label: "Repo",
