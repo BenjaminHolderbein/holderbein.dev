@@ -43,3 +43,8 @@ next-env.d.ts
 # design scratch
 /claude_design
 /PLAN.md
+
+# playwright/devtool scratch
+/.playwright-mcp
+/*.png
+!/public/*.png
