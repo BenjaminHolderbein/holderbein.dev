@@ -41,7 +41,7 @@ export function PageShell({
         Holderbein · San Francisco
       </div>
 
-      <div className="relative z-[2] mx-auto min-h-screen w-full max-w-[1100px] px-5 pb-24 pt-10 sm:px-6 md:px-20 md:pl-[200px] md:pb-40 md:pt-22">
+      <div className="relative z-[2] mx-auto min-h-screen w-full max-w-[1100px] px-5 pb-24 pt-[calc(env(safe-area-inset-top)+2.5rem)] sm:px-6 md:px-20 md:pl-[200px] md:pb-40 md:pt-22">
         <Topbar active={active} />
         {children}
         <Footer />
