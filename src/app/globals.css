@@ -16,10 +16,6 @@
   --ink-3:      #5a5a5a;
   --ink-muted:  #888888;
   --ink-faint:  #999999;
-
-  /* Tint shown above the page (overscroll bounce / iOS notch zone).
-     Approximates the alpha-blended top stop of the skylight gradient over paper. */
-  --skylight-top: oklch(0.985 0.0275 142);
 }
 
 @theme inline {
@@ -40,11 +36,20 @@
 }
 
 html {
-  background: var(--skylight-top);
+  /* Solid sage tint shown above the page (overscroll bounce / iOS notch). */
+  background: oklch(0.985 0.0275 142);
 }
 
 body {
-  background: var(--paper);
+  /* Body is transparent at the top so the html tint shows through, then fades
+     to paper after the first 720px. Sized to body so it spans the full page. */
+  background: linear-gradient(
+    180deg,
+    transparent 0px,
+    transparent 220px,
+    var(--paper) 720px,
+    var(--paper) 100%
+  );
   color: var(--ink);
 }
 

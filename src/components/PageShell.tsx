@@ -12,17 +12,7 @@ export function PageShell({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative min-h-screen w-full overflow-x-hidden bg-paper text-ink">
-      {/* Filtered green skylight */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-[720px]"
-        style={{
-          background:
-            "linear-gradient(180deg, oklch(0.97 calc(var(--sage-c) * 0.25) var(--sage-h) / 0.55) 0%, oklch(0.99 calc(var(--sage-c) * 0.12) var(--sage-h) / 0.25) 35%, transparent 100%)",
-        }}
-      />
-
+    <div className="relative min-h-screen w-full overflow-x-hidden text-ink">
       {/* Spine hairline running down the left margin */}
       <div
         aria-hidden
