@@ -89,8 +89,8 @@ export const site: Site = {
       end: "Present",
       yearRange: "2025 — Now",
       blurb:
-        "Built a modular RAG system replacing a 3-year-old semantic search serving 10,000+ daily customer queries. Architected an ingestion pipeline supporting four embedding models (BGE, Qwen3, Nemotron, Gemini) and a Redis vector store with automated preprocessing, chunking, and embedding workflows. Integrated DeepEval to benchmark embedders and retrieval strategies.",
-      stack: ["RAG", "Redis", "BGE", "Qwen3", "Nemotron", "Gemini", "DeepEval"],
+        "Built a modular multi-tenant RAG ingestion pipeline replacing a 3-year-old semantic search serving 10,000+ daily customer queries — cut deployment from full-code to zero-code config. Benchmarked four embedding models (BGE, Qwen3, Nemotron, Gemini) for production selection. On the voice side, led the opus-mt vs Gemini eval for IVR translation — opus-mt shipped at 7.3× lower latency (p50 138ms vs 1011ms) and an 88% good-rate on an 800-row EN-ES test set. Ran a 10K-message corpus experiment that surfaced an email-dictation failure in 76% of voice-safety calls and shipped the fix.",
+      stack: ["RAG", "Redis", "opus-mt", "BGE", "Qwen3", "Nemotron", "Gemini", "DeepEval"],
     },
     {
       role: "Software Engineer, Intern",
@@ -119,10 +119,10 @@ export const site: Site = {
       org: "Frontier Energy",
       where: "Davis, CA",
       start: "May 2022",
-      end: "Oct 2023",
-      yearRange: "2022 — 2023",
+      end: "Aug 2023",
+      yearRange: "2022 & 2023",
       blurb:
-        "Analyzed 40+ data channels monitoring residential building performance across California pilot sites. Built an Azure Data Explorer dashboard and a Python pipeline that cleaned, validated, and resampled time-series data from 1-second to 5-minute intervals.",
+        "Two summer stints analyzing 40+ data channels monitoring residential building performance across California pilot sites. Built an Azure Data Explorer dashboard and a Python pipeline that cleaned, validated, and resampled time-series data from 1-second to 5-minute intervals.",
       stack: ["Python", "Azure", "Time-series"],
     },
   ],
