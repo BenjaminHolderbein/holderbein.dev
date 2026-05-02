@@ -5,7 +5,7 @@ export function ContactList({ links }: { links: SiteLink[] }) {
     <ul className="m-0 max-w-[640px] list-none p-0">
       {links.map((l, i) => {
         const last = i === links.length - 1;
-        const external = l.href.startsWith("http");
+        const external = l.href.startsWith("http") || l.href.endsWith(".pdf");
         return (
           <li
             key={l.label}
