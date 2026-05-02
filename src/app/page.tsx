@@ -6,6 +6,7 @@ import { Section, SectionHead, SectionTitle, Para } from "@/components/Section";
 import { NowList } from "@/components/NowList";
 import { ProjectList } from "@/components/ProjectRow";
 import { ExperienceList } from "@/components/ExperienceList";
+import { EducationList } from "@/components/EducationList";
 import { ContactList } from "@/components/ContactList";
 
 const FEATURED_PROJECT_COUNT = 4;
@@ -65,7 +66,12 @@ export default function Home() {
       </Section>
 
       <Section>
-        <SectionHead num="05" label="Contact" accent="Say hello" />
+        <SectionHead num="05" label="Education" />
+        <EducationList entries={site.education} />
+      </Section>
+
+      <Section>
+        <SectionHead num="06" label="Contact" accent="Say hello" />
         <ContactList links={site.links} />
       </Section>
     </PageShell>

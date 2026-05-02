@@ -21,6 +21,16 @@ export type ExperienceEntry = {
   stack: string[];
 };
 
+export type EducationEntry = {
+  degree: string;
+  school: string;
+  where: string;
+  start: string;
+  end: string;
+  yearRange: string;
+  details?: string;
+};
+
 export type Site = {
   name: string;
   handle: string;
@@ -34,6 +44,7 @@ export type Site = {
   links: Link[];
   now: string[];
   experience: ExperienceEntry[];
+  education: EducationEntry[];
   projects: Project[];
 };
 
@@ -124,6 +135,26 @@ export const site: Site = {
       blurb:
         "Two summer stints analyzing 40+ data channels monitoring residential building performance across California pilot sites. Built an Azure Data Explorer dashboard and a Python pipeline that cleaned, validated, and resampled time-series data from 1-second to 5-minute intervals.",
       stack: ["Python", "Azure", "Time-series"],
+    },
+  ],
+  education: [
+    {
+      degree: "M.S. in Data Science & AI",
+      school: "University of San Francisco",
+      where: "San Francisco",
+      start: "Jul 2025",
+      end: "Jun 2026",
+      yearRange: "2025 — 2026",
+      details: "Expected June 2026",
+    },
+    {
+      degree: "B.S. in Data Science",
+      school: "University of San Francisco",
+      where: "San Francisco",
+      start: "Aug 2021",
+      end: "May 2025",
+      yearRange: "2021 — 2025",
+      details: "3.96 GPA",
     },
   ],
   projects: [
