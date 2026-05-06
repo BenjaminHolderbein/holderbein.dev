@@ -64,7 +64,7 @@ If no GitHub link, skip and note "no repo to check."
 Fetch the repo description + first ~100 lines of README:
 
 ```bash
-gh api repos/<owner>/<name> --jq '{description, pushedAt, isArchived}'
+gh api repos/<owner>/<name> --jq '{description, pushed_at, archived}'
 gh api repos/<owner>/<name>/readme --jq .content | base64 -d | head -100
 ```
 
@@ -131,12 +131,24 @@ curl -sI https://holderbein.dev/sitemap.xml | head -1
 curl -sI https://holderbein.dev/opengraph-image | grep -iE "^(HTTP|content-type)"
 
 # D7: latest Vercel deploy state (skip if `vercel` not installed or .vercel/ missing)
-vercel ls --yes 2>/dev/null | head -5
+vercel ls 2>/dev/null | head -5
+
+# D8: latest deploy is newer than local HEAD + apex domain is aliased to it
+LATEST_URL=$(vercel ls 2>/dev/null | awk '/Ready|Error|Building|Queued/ {print $4; exit}')
+vercel inspect "$LATEST_URL" 2>&1 | grep -E "created|holderbein.dev"
+git log -1 --format='%ai %h %s'
 ```
 
 For D7, flag if the most recent deploy is not `Ready` (e.g., `Error`, `Building`,
 `Queued`). If the CLI isn't installed or the project isn't linked, note "vercel
 CLI not available" and move on — don't block the report.
+
+For D8: parse the deploy's `created` timestamp from `vercel inspect` and compare
+to `git log -1 --format=%ai` on the current branch. If the latest deploy is
+older than HEAD, the push hasn't deployed yet (or the build failed and the
+"latest Ready" is stale) — flag it. Also confirm `https://holderbein.dev` and
+`https://www.holderbein.dev` appear in the deploy's Aliases list; missing
+aliases mean the build went Ready but didn't get promoted.
 
 ### E. Code health
 
