@@ -129,7 +129,14 @@ curl -sI https://holderbein.dev/sitemap.xml | head -1
 
 # D6: og image
 curl -sI https://holderbein.dev/opengraph-image | grep -iE "^(HTTP|content-type)"
+
+# D7: latest Vercel deploy state (skip if `vercel` not installed or .vercel/ missing)
+vercel ls --yes 2>/dev/null | head -5
 ```
+
+For D7, flag if the most recent deploy is not `Ready` (e.g., `Error`, `Building`,
+`Queued`). If the CLI isn't installed or the project isn't linked, note "vercel
+CLI not available" and move on — don't block the report.
 
 ### E. Code health
 
