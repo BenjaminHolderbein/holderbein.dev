@@ -133,9 +133,8 @@ curl -sI https://holderbein.dev/opengraph-image | grep -iE "^(HTTP|content-type)
 # D7: latest Vercel deploy state (skip if `vercel` not installed or .vercel/ missing)
 vercel ls 2>/dev/null | head -5
 
-# D8: latest deploy is newer than local HEAD + apex domain is aliased to it
-LATEST_URL=$(vercel ls 2>/dev/null | grep -oE 'https://holderbein-[a-z0-9]+-[^ ]+\.vercel\.app' | head -1)
-vercel inspect "$LATEST_URL" 2>&1 | grep -E 'created|holderbein\.dev'
+# D8: the deploy currently serving the apex is at least as new as local HEAD
+vercel inspect https://holderbein.dev 2>&1 | grep -E 'url|created'
 git log -1 --format='%ai %h %s'
 ```
 
@@ -143,12 +142,12 @@ For D7, flag if the most recent deploy is not `Ready` (e.g., `Error`, `Building`
 `Queued`). If the CLI isn't installed or the project isn't linked, note "vercel
 CLI not available" and move on — don't block the report.
 
-For D8: parse the deploy's `created` timestamp from `vercel inspect` and compare
-to `git log -1 --format=%ai` on the current branch. If the latest deploy is
-older than HEAD, the push hasn't deployed yet (or the build failed and the
-"latest Ready" is stale) — flag it. Also confirm `https://holderbein.dev` and
-`https://www.holderbein.dev` appear in the deploy's Aliases list; missing
-aliases mean the build went Ready but didn't get promoted.
+For D8: `vercel inspect https://holderbein.dev` resolves the alias to whichever
+deploy is actually serving the apex right now. Parse its `created` timestamp and
+compare to `git log -1 --format=%ai`. If the apex-serving deploy is older than
+HEAD, either the push hasn't built yet, the build failed, or promotion is stuck
+— flag it. (This avoids the false flag from D7's "latest Ready" briefly
+mismatching during the normal ~30s–2min promotion window after a push.)
 
 ### E. Code health
 
