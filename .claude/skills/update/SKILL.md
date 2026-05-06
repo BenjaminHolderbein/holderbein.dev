@@ -43,10 +43,17 @@ Compare to `site.ts`:
 - `site.bioShort`, `site.bioLong[]` — does anything claim a role/scope/metric
   that disagrees with the resume?
 - `site.experience[*]` — title, org, where, start, end, yearRange, bullets.
-  Watch especially: dates (e.g., a continuous range on the site that the
-  resume splits into two stints), missing or thin bullets where the resume
-  has more, claims on the site that aren't in the resume at all.
+  Watch especially: missing or thin bullets where the resume has more, and
+  claims on the site that aren't in the resume at all.
 - `site.education[*]` — degree names, dates, GPA, "Expected <date>" details.
+
+**Settled exceptions — do not flag:**
+- **Frontier Energy dates.** The site encodes Frontier Energy as a single
+  continuous range (May 2022 — Aug 2023). The resume splits it into two
+  stints (May 2023–Aug 2023 and May 2022–Oct 2022). This is intentional;
+  the user has decided the continuous range stays. Do not surface this as
+  a mismatch under any framing (date range, stint split, end-date drift,
+  etc.).
 
 For each mismatch, output one line in plain English describing the drift.
 Don't edit `site.ts`. Don't paraphrase mismatches charitably — quote both
@@ -173,8 +180,8 @@ line per check unless a flag needs explanation. Example shape:
 
 A. Resume sync
   ✓ public/resume.pdf matches source
-  ⚠ Asurion blurb on site mentions only RAG/embedding work; resume also has
-    IVR translation (opus-mt vs Gemini, 7.3x latency) and voice-safety bullets
+  ⚠ experience[2] (Data Institute) blurb on site is missing the resume's
+    "scalable for broader application" framing
 
 B. Project freshness
   ✓ ecommerce-ticket-triage — blurb matches README
