@@ -134,8 +134,8 @@ curl -sI https://holderbein.dev/opengraph-image | grep -iE "^(HTTP|content-type)
 vercel ls 2>/dev/null | head -5
 
 # D8: latest deploy is newer than local HEAD + apex domain is aliased to it
-LATEST_URL=$(vercel ls 2>/dev/null | awk '/Ready|Error|Building|Queued/ {print $4; exit}')
-vercel inspect "$LATEST_URL" 2>&1 | grep -E "created|holderbein.dev"
+LATEST_URL=$(vercel ls 2>/dev/null | grep -oE 'https://holderbein-[a-z0-9]+-[^ ]+\.vercel\.app' | head -1)
+vercel inspect "$LATEST_URL" 2>&1 | grep -E 'created|holderbein\.dev'
 git log -1 --format='%ai %h %s'
 ```
 
