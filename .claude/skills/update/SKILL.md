@@ -15,9 +15,6 @@ commit anything beyond the resume PDF copy.
 - Source of truth: `src/content/site.ts`. Read it once at the start so all checks reference the same parsed content.
 - Resume source: `/Users/benjaminholderbein/Documents/Career/Resumes/main-resume/Benjamin_Holderbein_Resume.pdf`.
 - Use the system-context date (today) when evaluating time-based claims.
-- Use TaskCreate to track progress through the checks. One task per section (A–E).
-  Mark each task in_progress when you start it, completed when its checks finish
-  (whether they passed or flagged). Don't batch.
 
 ## Checks
 
@@ -90,6 +87,11 @@ curl -sI -o /dev/null -w "%{http_code} %{url_effective}\n" --max-time 10 <url>
 
 Anything non-2xx (or non-3xx for known redirects) → flag.
 
+Known false positives — do **not** flag:
+- `linkedin.com/*` returns `999` (LinkedIn blocks non-browser HEAD requests).
+- `npmjs.com/package/*` returns `403` to bare HEAD (npm bot-blocks). Use
+  `curl -sI -A "Mozilla/5.0"` if you want a real check, otherwise skip.
+
 ### C. Time-based staleness
 
 Use today's date from the system context.
@@ -139,6 +141,9 @@ npm outdated 2>&1 | tail -30
 
 `build` and `lint` must succeed. `npm outdated` is informational — report what's
 behind, don't bump.
+
+Note: the `lint` script runs `eslint` directly; empty output = clean (exit 0).
+Don't read silence as a failure.
 
 ## Reporting
 
