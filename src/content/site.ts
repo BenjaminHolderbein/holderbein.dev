@@ -169,7 +169,7 @@ export const site: Site = {
       links: [
         {
           label: "Live",
-          href: "https://msds-603-victors-demons.firebaseapp.com",
+          href: "https://tickets.holderbein.dev",
         },
         {
           label: "Repo",
