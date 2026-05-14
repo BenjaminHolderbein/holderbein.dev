@@ -16,7 +16,7 @@ export function SkylightWatcher() {
       const nearBottom = distanceFromBottom < BOTTOM_THRESHOLD;
       html.style.setProperty(
         "--skylight",
-        nearBottom ? "var(--paper)" : "oklch(0.985 0.0275 142)",
+        nearBottom ? "var(--paper)" : "var(--skylight-top)",
       );
     };
     update();

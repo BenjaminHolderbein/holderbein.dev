@@ -36,10 +36,11 @@
 }
 
 html {
-  /* SkylightWatcher (client) toggles --skylight between sage (top of page,
-     where the gradient bleeds into overscroll) and paper (past the gradient,
-     so the bottom-edge bounce matches the white page bg). */
-  --skylight: oklch(0.985 0.0275 142);
+  /* SkylightWatcher (client) toggles --skylight between --skylight-top (top of
+     page, where the gradient bleeds into overscroll) and paper (past the
+     gradient, so the bottom-edge bounce matches the white page bg). */
+  --skylight-top: oklch(0.985 0.05 142);
+  --skylight: var(--skylight-top);
   background-color: var(--skylight);
   transition: background-color 220ms ease-out;
 }
@@ -47,11 +48,13 @@ html {
 body {
   /* Transparent at the top so the html tint shows through, fades to paper
      after the first 720px. Sized to body so it spans the full page. */
+  --skylight-hold: 220px;
+  --skylight-fade: 900px;
   background: linear-gradient(
     180deg,
     transparent 0px,
-    transparent 220px,
-    var(--paper) 720px,
+    transparent var(--skylight-hold),
+    var(--paper) var(--skylight-fade),
     var(--paper) 100%
   );
   color: var(--ink);
